@@ -1,0 +1,22 @@
+set terminal gif animate delay 5 loop 0 optimize
+
+
+set terminal wxt background 'black'
+unset border
+unset tics
+unset key
+
+set palette rgb 33,13,10
+unset colorbox
+
+n=300
+
+do for [ii=1:n] {
+    set view 60, ii*360/n
+    splot 'chaos2.dat' every ::1::ii  with l lt 1 lw 1 lc palette , \
+          'chaos2.dat' every ::ii::ii w p pt 7 ps 1
+    
+   
+}
+
+
